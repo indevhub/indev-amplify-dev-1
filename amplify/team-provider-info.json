@@ -15,7 +15,7 @@
       "function": {
         "indevamplifydev1dfb6338edfb6338ePostConfirmation": {
           "deploymentBucketName": "amplify-indevamplifydev1-dev-170326-deployment",
-          "s3Key": "amplify-builds/indevamplifydev1dfb6338edfb6338ePostConfirmation-6a642b74545434305433-build.zip"
+          "s3Key": "amplify-builds/indevamplifydev1dfb6338edfb6338ePostConfirmation-57326967587a5a585643-build.zip"
         },
         "AdminQueries19ceb81f": {
           "deploymentBucketName": "amplify-indevamplifydev1-dev-170326-deployment",
