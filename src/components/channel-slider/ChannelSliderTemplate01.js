@@ -68,7 +68,7 @@ function ChannelSliderTemplate01(props) {
               xs={4}
             >
               <Card raised sx={{ color: 'white', backgroundColor: '#ffffff55', px: 1, py: 2 }}>
-                <Typography variant="h3" align="center">{channel.projects.items.length}</Typography>
+                <Typography variant="h3" align="center">{channel.projects.items === undefined ? 0 : channel.projects.items.length}</Typography>
                 <Typography variant="h6" align="center">Projects</Typography>
               </Card>
             </Grid>

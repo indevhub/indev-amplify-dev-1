@@ -134,7 +134,7 @@ function ChannelTemplate(props) {
 
   // Get number of videos in the vimeo showcase
   const [vidData, setVidData] = useState([]);
-  const [showcaseId, setShowcaseId] = useState(7868357);
+  const [showcaseId, setShowcaseId] = useState(8521543);
 
   useEffect(() => {
     // eslint-disable-next-line
@@ -149,7 +149,8 @@ function ChannelTemplate(props) {
       setChannelData(listChannelData);
       console.log('channel list', listChannelData);
 
-      fetch(`https://api.vimeo.com/me/albums/${channelId}/videos`, { method: 'GET', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${process.env.REACT_APP_SHOWCASE_AUTH}` } })
+      // Change showcaseId to channelId once vimeo lambda functions are added back in
+      fetch(`https://api.vimeo.com/me/albums/${showcaseId}/videos`, { method: 'GET', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${process.env.REACT_APP_SHOWCASE_AUTH}` } })
       .then(response => response.json())
       .then(data => setVidData(data.data));
       console.log('vid data', vidData);

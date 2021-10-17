@@ -8,9 +8,8 @@ import {
   Grid,
   Typography
 } from '@material-ui/core';
-import { API } from 'aws-amplify';
-// import { listChannels } from '../../graphql/queries';
-import * as queries from '../../graphql/queries';
+import { API, graphqlOperation } from 'aws-amplify';
+import { listChannels } from '../../graphql/queries';
 // import ChannelBrowse from '../../pages/channel/ChannelBrowse';
 import ChannelSlider from '../channel-slider/ChannelSlider';
 // import ChannelCreate from '../dashboard/channel/channel-create/ChannelAdd';
@@ -141,11 +140,7 @@ const HomeHeroAlt = (props) => {
   
   const getChannelInfo = async () => {
     try {
-      const getChannelData = await API.graphql({
-        query: queries.listChannels,
-        authMode: 'AWS_IAM'
-      });
-      console.log('getChannelData:', getChannelData);
+      const getChannelData = await API.graphql(graphqlOperation(listChannels));
       const listChannelData = getChannelData.data.listChannels.items;
       setChannelData(listChannelData);
       setIsLoading(false);
