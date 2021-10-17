@@ -1,0 +1,17 @@
+{
+  "trigger": true,
+  "modules": [
+    "custom"
+  ],
+  "parentResource": "indevamplifydev1dfb6338edfb6338e",
+  "functionName": "indevamplifydev1dfb6338edfb6338ePostConfirmation",
+  "resourceName": "indevamplifydev1dfb6338edfb6338ePostConfirmation",
+  "parentStack": "auth",
+  "triggerEnvs": [],
+  "triggerDir": "C:\\Users\\LustrePC21\\AppData\\Roaming\\npm\\node_modules\\@aws-amplify\\cli\\node_modules\\amplify-category-auth\\provider-utils\\awscloudformation\\triggers\\PostConfirmation",
+  "triggerTemplate": "PostConfirmation.json.ejs",
+  "triggerEventPath": "PostConfirmation.event.json",
+  "roleName": "indevamplifydev1dfb6338edfb6338ePostConfirmation",
+  "skipEdit": true,
+  "enableCors": false
+}
