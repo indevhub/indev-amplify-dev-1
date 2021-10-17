@@ -4,7 +4,9 @@ type Channel
   @auth(
     rules: [
       # allow admins to create, update, delete
-      { allow: groups, groups: ["admin"] }
+      { allow: groups, groups: ["admin", "admindev"] }      
+      # allow devs to create, update
+      { allow: groups, groups: ["devs"], operations: [create, update, read] }
       # allow all authenticated users to view
       { allow: private, operations: [read] }
       # allow all unauthenticated users to view

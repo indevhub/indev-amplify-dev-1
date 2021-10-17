@@ -95,11 +95,65 @@
         },
      
     
+        "admindevGroup": {
+          "Type" : "AWS::Cognito::UserPoolGroup",
+          "Properties" : {
+              "GroupName" : "admindev",
+              "Precedence" : 2,
+              
+              "RoleArn" : {
+                "Fn::GetAtt": [
+                    "admindevGroupRole",
+                    "Arn"
+                ]
+              },
+              
+              "UserPoolId" : {
+                "Ref": "authindevamplifydev1dfb6338edfb6338eUserPoolId"
+              }
+            }
+        },
+        
+        "admindevGroupRole": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "RoleName":{
+                    "Fn::Join": [
+                        "",
+                        [
+                          {
+                            "Ref": "authindevamplifydev1dfb6338edfb6338eUserPoolId"
+                          },
+                          "-admindevGroupRole"
+                        ]
+                    ]
+                },
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Sid": "",
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Federated": "cognito-identity.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRoleWithWebIdentity",
+                            "Condition": {
+                              "StringEquals": {"cognito-identity.amazonaws.com:aud": {"Ref":"authindevamplifydev1dfb6338edfb6338eIdentityPoolId"}},
+                              "ForAnyValue:StringLike": {"cognito-identity.amazonaws.com:amr": "authenticated"}
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+     
+    
         "devsGroup": {
           "Type" : "AWS::Cognito::UserPoolGroup",
           "Properties" : {
               "GroupName" : "devs",
-              "Precedence" : 2,
+              "Precedence" : 3,
               
               "RoleArn" : {
                 "Fn::GetAtt": [
@@ -355,6 +409,17 @@
             "Value": {
                 "Fn::GetAtt": [
                     "adminGroupRole",
+                    "Arn"
+                ]
+            }
+        
+        },
+        
+      
+        "admindevGroupRole": {
+            "Value": {
+                "Fn::GetAtt": [
+                    "admindevGroupRole",
                     "Arn"
                 ]
             }
